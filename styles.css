@@ -16,6 +16,7 @@ h1 {
 
 .thumbnails {
     display: flex;
+    flex-wrap: wrap; /* Permite que las miniaturas se envuelvan a la siguiente línea en dispositivos pequeños */
     justify-content: center;
     align-items: center;
     margin-top: 20px;
@@ -24,14 +25,23 @@ h1 {
 .thumbnail {
     margin: 10px;
     text-align: center;
+    flex: 1; /* Distribuye el espacio de manera uniforme entre las miniaturas */
+    max-width: 300px; /* Limita el ancho máximo de las miniaturas */
 }
 
 .thumbnail img {
-    width: 200px;
-    height: 150px;
+    width: 100%; /* Las imágenes ocuparán todo el ancho disponible */
+    height: auto; /* Se ajustan automáticamente según el ancho */
     border: 1px solid #ddd;
 }
 
 .thumbnail p {
     font-weight: bold;
+}
+
+/* Media query para dispositivos pequeños */
+@media screen and (max-width: 768px) {
+    .thumbnails {
+        flex-direction: column; /* Coloca las miniaturas en una columna */
+    }
 }
